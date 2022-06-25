@@ -3,9 +3,8 @@ import CSSRulePlugin from 'gsap/CSSRulePlugin';
 import data from './data';
 import css from './css';
 
-//初始化gsap CSSRulePlugin
+//初始化gsap CSSRulePlugin 用于获取伪元素
 gsap.registerPlugin(CSSRulePlugin)
-// const tween = gsap.timeline()
 
 class Animation {
   constructor() {
@@ -137,6 +136,7 @@ class Animation {
     this.calcuatorBtnToLight({ duration, delay })
   }
 
+  //计算器背景变浅色
   calcuatorBackgroundToLight({ tween = gsap.timeline(), duration = 0 }) {
     tween.to('.calculator', { duration, boxShadow: css.lightCalculatorBgShadow })
   }
