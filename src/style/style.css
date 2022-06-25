@@ -187,7 +187,7 @@ body{
 }
 
 .toggle img:nth-child(1){
-  display: none;
+  display: block;
   filter: invert(1);
   box-shadow: var(--light-image-shadow);
 }
@@ -197,7 +197,7 @@ body{
 }
 
 .toggle img:nth-child(2) {
-  display: block;
+  display:none ;
   box-shadow: var(--dark-image-shadow);
 }
 
