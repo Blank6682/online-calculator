@@ -30,7 +30,7 @@ class Status{
   
   //获取当前计算机输入部分显示的内容
   static getInputDomValue() {
-    return data.getInputDom().value
+    return dom.getInputDom().value
   }
 
   //获取输入部分显示的内容的拆分结果，未开启优化的版本
