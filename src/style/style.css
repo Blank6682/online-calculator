@@ -136,8 +136,10 @@ body{
   /* 位置 */
   width: 100vw;
   height: 100vh;
+  min-width: 900px;
   /* 布局 */
   display: grid;
+  position: relative;
   place-items: center;
   /* 修饰 */
   background: var(--dark-primary-color);
