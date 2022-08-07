@@ -1,10 +1,14 @@
 import "./style/style.css"
-import data from './utils/data';
-import dom from './utils/dom';
-import animation from './utils/animation';
 
-console.log('data', data)
-console.log('dom', dom)
+import data from './hooks/data';
+import dom from './hooks/dom';
+import animation from './hooks/animation';
+import { Log, logMaker, log } from './utils/log';
+import { counter } from './utils/counter';
+
+log('hello wrold')
+log(counter.next().value)
+log(counter.next().value)
 
 //为按钮赋予标签
 data.info.forEach(el => {
@@ -30,18 +34,18 @@ dom.button.forEach(el => {
   })
 })
 
-//键盘触发按钮按下事件
+//添加事件监听
 data.info.forEach(item => {
+  //键盘事件
   window.addEventListener("keydown", (event) => {
     item.key.forEach(key => {
       if (event.key === key && dom.getDomById(item.id)) {
         animation.btnPress(dom.getDomById(item.id))
+        calcuator.analysisEachTimeInput(item)
       }
     })
   })
-})
 
-data.info.forEach(item => {
   window.addEventListener("keyup", (event) => {
     item.key.forEach(key => {
       if (event.key === key && dom.getDomById(item.id)) {
@@ -49,7 +53,13 @@ data.info.forEach(item => {
       }
     })
   })
+  
+  //dom操作事件
+  dom.getDomById(item.id)?.addEventListener('click', () => {
+    calcuator.analysisEachTimeInput(item)
+  })
 })
+
 
 //切换主题动画
 //默认启用浅色模式

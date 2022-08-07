@@ -5,13 +5,16 @@ class Dom {
     show: null,
     input: null
   }
+  
   toggle = {
     sun: null,
     moon: null
   }
+
   number = []
   order = []
   button = []
+
   constructor() {
     this._getTextAreaDom()
     this._getToggleDom()
