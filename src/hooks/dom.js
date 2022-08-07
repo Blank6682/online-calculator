@@ -70,6 +70,14 @@ class Dom {
   getAllDom(info) {
     return document.querySelectorAll(info)
   }
+
+  getInputDom = () => {
+    return this.text.input
+  }
+
+  getShowDom = () => {
+    return this.text.Show
+  }
 }
 
 export default new Dom()
