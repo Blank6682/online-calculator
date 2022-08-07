@@ -1,5 +1,5 @@
 /* 计数函数 */
-function counterMaker(index = 0) {
+function* counterMaker(index = 0) {
   while (true) {
     yield index++;
   }
