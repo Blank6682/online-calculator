@@ -11,7 +11,7 @@ math.config({
 
 math.calculate = (expression) => {
   const result = Number(math.evaluate(expression))
-  log(`math.calcuate : ${result}`)
+  log(`math.calculate : ${result}`)
   return result
 }
 
