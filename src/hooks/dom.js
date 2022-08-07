@@ -76,7 +76,7 @@ class Dom {
   }
 
   getShowDom = () => {
-    return this.text.Show
+    return this.text.show
   }
 }
 
