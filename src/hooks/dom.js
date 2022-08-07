@@ -1,4 +1,4 @@
-import data from './data';
+import { data } from './data';
 
 class Dom {
   text = {
@@ -80,4 +80,5 @@ class Dom {
   }
 }
 
-export default new Dom()
+const dom = new Dom()
+export { dom }

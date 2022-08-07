@@ -112,5 +112,6 @@ class Data {
   }
 }
 
+const data = new Data(Info)
 
-export default new Data(Info)
+export { data }

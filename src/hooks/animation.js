@@ -1,6 +1,6 @@
 import { gsap } from 'gsap';
 import CSSRulePlugin from 'gsap/CSSRulePlugin';
-import data from './data';
+import { data } from './data';
 import css from './css';
 
 //初始化gsap CSSRulePlugin 用于获取伪元素
@@ -187,4 +187,6 @@ class Animation {
   }
 }
 
-export default new Animation() 
+const animation = new Animation()
+
+export { animation }  
