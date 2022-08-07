@@ -3,13 +3,8 @@ import "./style/style.css"
 import { data } from './hooks/data';
 import { dom } from './hooks/dom';
 import { animation } from './hooks/animation';
-import { Log, logMaker, log } from './utils/log';
-import { counter } from './utils/counter';
 import { calcuator } from './hooks/calculator';
 
-log('hello wrold')
-log(counter.next().value)
-log(counter.next().value)
 
 //为按钮赋予标签
 data.info.forEach(el => {
