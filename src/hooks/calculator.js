@@ -105,7 +105,7 @@ class Calcuator{
         dom.getInputDom().value = ''
         this._calculateShowDomValue()
       } else if (dom.getShowDom().value.length) {
-        dom.getShowDom = ''
+        dom.getShowDom() = ''
         animation.textAreaHideHistory()
       }
     }
