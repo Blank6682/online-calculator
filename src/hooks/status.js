@@ -11,7 +11,9 @@ class Status{
   //inputDom拆分的信息，未开启优化的
   static curInputDomSplit = Status.getInputDomValueSplit()
   //inputDom拆分的信息，开启优化的
-  static curInputDomSplitOptimize = Status.getInputDomValueSplitOptimize ()
+  static curInputDomSplitOptimize = Status.getInputDomValueSplitOptimize()
+  //上一次输入的是否产生计算结果
+  static lastInputShowResult = false
 
 
   //生成状态

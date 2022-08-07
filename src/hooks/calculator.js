@@ -70,6 +70,7 @@ class Calcuator{
 
   //执行行为
   _run() {
+    Status.lastInputShowResult = false
     this._addValue()
     this._showResult()
     this._clearAll()
@@ -93,6 +94,8 @@ class Calcuator{
         dom.getInputDom().value = calculateResult
         animation.textAreaShowHistory()
       }
+
+      Status.lastInputShowResult = true
     }
   }
 
@@ -115,7 +118,7 @@ class Calcuator{
       let showLen = dom.getShowDom().value.length
       let inputString = dom.getInputDom().value
       
-      inputLen && (dom.getInputDom().value = inputString.subString(0, inputLen - 1))
+      inputLen && (dom.getInputDom().value = inputString.slice(0, inputLen - 1))
       
       showLen && this._calculateShowDomValue()
     }
@@ -124,7 +127,8 @@ class Calcuator{
   _calculateShowDomValue = () => {
     const history = dom.getShowDom().value.split('')
     if (history.pop() === '=') {
-      dom.getShowDom.value += math.calculate(history.join())
+      console.log("history",math.calculate(history.join('')))
+      dom.getShowDom().value += math.calculate(history.join(''))
     }
   }
 }
