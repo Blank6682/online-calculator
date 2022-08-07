@@ -99,8 +99,9 @@ class Data {
       const elToNumber = Number(el)
 
       if (elToNumber || elToNumber === 0) {
+        console.log(elToNumber);
         //将不规范的数字转化为规范的数字 eg: 0.00=>0 001 =>1
-        return math.calculate(elToNumber).toSting()
+        return math.calculate(String(elToNumber)).toString()
       }
       return el
     })
