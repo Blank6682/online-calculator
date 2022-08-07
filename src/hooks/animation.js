@@ -2,6 +2,7 @@ import { gsap } from 'gsap';
 import CSSRulePlugin from 'gsap/CSSRulePlugin';
 import { data } from './data';
 import css from './css';
+import { dom } from './dom';
 
 //初始化gsap CSSRulePlugin 用于获取伪元素
 gsap.registerPlugin(CSSRulePlugin)
@@ -184,6 +185,18 @@ class Animation {
       borderBottom: css.lightSpanBeforeBorder,
       borderLeft: css.lightSpanBeforeBorder,
     })
+  }
+
+  textAreaShowHistory = () => {
+    gsap.to(dom.getInputDom(), { duration: 0.5, y: 24 })
+    gsap.to(dom.getShowDom(), {
+      duration: 0.5, y: -24, opacity: 1, display: 'block'
+    })
+  }
+
+  textAreaHideHistory = () => {
+    gsap.to(dom.getInputDom(), { duration: 0, y: 0 })
+    gsap.to(dom.getShowDom(),{ duration:0.0 , y:0,opacity:0,display:'none'})
   }
 }
 
