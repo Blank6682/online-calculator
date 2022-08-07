@@ -6,7 +6,7 @@ import { dom } from './dom';
 import { math } from './math';
 import { animation } from './animation';
 
-const log = logMaker(true)
+const log = logMaker()
 
 class Calcuator{
   
@@ -76,10 +76,57 @@ class Calcuator{
     this._clearLast()
   }
 
-  _addValue = () =>{}
-  _showResult = () =>{}
-  _clearAll = () =>{}
-  _clearLast = () =>{}
+  _addValue = () => {
+    if (Status.curInputStatus.isAddValue) {
+      dom.getInputDom().value += Status.curInputInfo.tag
+    }
+  }
+
+  _showResult = () => {
+    if (Status.curInputStatus.isShowResult) {
+      if (!dom.getInputDom().value.length) return
+      const analysisInput = Status.curInputDomSplitOptimize.join('')
+      const calculateResult = math.calculate(analysisInput)
+
+      if (typeof calculateResult === 'number') {
+        dom.getShowDom().value = analysisInput + '='
+        dom.getInputDom().value = calculateResult
+        animation.textAreaShowHistory()
+      }
+    }
+  }
+
+  _clearAll = () => {
+    if (Status.curInputStatus.isClearAll) {
+      if (dom.getInputDom().value.length) {
+        dom.getInputDom().value = ''
+        this._calculateShowDomValue()
+      } else if (dom.getShowDom().value.length) {
+        dom.getShowDom = ''
+        animation.textAreaHideHistory()
+      }
+    }
+  }
+
+  _clearLast = () => {
+    if (Status.curInputStatus.isClearLast) {
+
+      let inputLen = dom.getInputDom().value.length
+      let showLen = dom.getShowDom().value.length
+      let inputString = dom.getInputDom().value
+      
+      inputLen && (dom.getInputDom().value = inputString.subString(0, inputLen - 1))
+      
+      showLen && this._calculateShowDomValue()
+    }
+  }
+  
+  _calculateShowDomValue = () => {
+    const history = dom.getShowDom().value.split('')
+    if (history.pop() === '=') {
+      dom.getShowDom.value += math.calculate(history.join())
+    }
+  }
 }
 
 const calcuator = new Calcuator()
